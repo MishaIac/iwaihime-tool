@@ -17,7 +17,7 @@ for fs in os.listdir(path1):
     f = codecs.open(path1 + fs, "r", "utf-8")
     for f2 in f:
         off.append(k.tell())
-        stream.writeBytes(f2.replace("\r\n", "").encode("utf-8") + b"\x00")
+        stream.writeBytes(f2.replace("\n", "").encode("utf-8") + b"\x00")
     k.seek(0)
     for off1 in off:
         stream.writeInt32(off1)
